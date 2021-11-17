@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/bagasunix', express.static(path.join(__dirname, 'node_modules/admin-lte')))
 app.set('views', './views') // specify the views directory
 app.set('view engine', 'ejs') // register the template engine
 
