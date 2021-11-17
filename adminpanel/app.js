@@ -1,10 +1,21 @@
+require('dotenv').config()
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose')
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+
+mongoose
+    .connect(process.env.DB, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        // useCreateIndex: true,
+        // useFindAndModify: false,
+    })
+    .then(() => console.log("Database Connection Successful!"));
 
 const app = express();
 
